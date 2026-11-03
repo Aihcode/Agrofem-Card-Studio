@@ -1,0 +1,8 @@
+{
+  "name": "Remix Agrofem CardStudio - ID Badge Creator \u0026 Smart-51 Card Printer",
+  "description": "Enterprise CR80 vertical ID badge creator, employee directory management, and pixel-precise print engine targeting IDP SMART-51 and industrial card printers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

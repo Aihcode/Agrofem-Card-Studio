@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-segoe-black {
+    font-family: 'Segoe UI Black', 'Arial Black', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+  }
+  .font-mono-code {
+    font-family: 'Space Grotesk', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* SMART-51 and CR80 Card Dimensions */
+:root {
+  --cr80-w: 54mm;
+  --cr80-h: 85.6mm;
+  --photo-w: 26mm;
+  --photo-h: 34mm;
+}
+
+/* Card dimension classes in screen mode */
+.cr80-card-canvas {
+  width: 54mm;
+  height: 85.6mm;
+  min-width: 54mm;
+  min-height: 85.6mm;
+  max-width: 54mm;
+  max-height: 85.6mm;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+.cr80-photo-frame {
+  width: 26mm;
+  height: 34mm;
+  min-width: 26mm;
+  min-height: 34mm;
+  max-width: 26mm;
+  max-height: 34mm;
+  box-sizing: border-box;
+}
+
+/* Absolute Production-Ready Print Optimization for IDP SMART-51 & Card Printers */
+@page {
+  size: 54mm 85.6mm;
+  margin: 0mm;
+}
+
+@media print {
+  /* Suppress browser headers, footers, URLs, dates, and outer margins */
+  html, body {
+    width: 54mm !important;
+    height: 85.6mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    overflow: hidden !important;
+  }
+
+  /* Isolate print target: hide all surrounding UI elements, dashboard, modals, controls */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-badge-container,
+  .print-badge-container * {
+    visibility: visible;
+  }
+
+  .print-badge-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 54mm !important;
+    height: 85.6mm !important;
+    max-width: 54mm !important;
+    max-height: 85.6mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important; /* CR80 card printers cut or edge-print directly */
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+    z-index: 99999 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .no-print,
+  [data-no-print] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
